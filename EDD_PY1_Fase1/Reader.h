@@ -9,10 +9,10 @@ public:
     
     Reader();
     void addEmployeesM();
+    void addEmployeesF();
     Employees *empList;
 
 private:
-    
     
 };
 

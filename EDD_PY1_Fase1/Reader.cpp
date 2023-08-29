@@ -4,6 +4,9 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <fstream>
+using namespace std;
 
 Reader::Reader(){
 	this->empList = new Employees();
@@ -71,6 +74,7 @@ void Reader::addEmployeesM(){
 				continue;
 			}
 
+			// ARREGLAR PARA HACER UN ID ÚNICO
 			if((this->empList->cant + 1) < 10){
 				id += "00" + std::to_string(this->empList->cant+1);
 			} else if((this->empList->cant + 1) < 100){
@@ -103,4 +107,55 @@ void Reader::addEmployeesM(){
 	}
 	
 	std::cout << "" << std::endl;
+}
+
+// Carga de empleados por archivo .csv
+void Reader::addEmployeesF(){
+
+	std:string fileName;
+	
+    std::cout << " *** Ingrese el nombre del archivo: " << std::endl;
+    std::cout << " [!] Los archivos deben encontrarse en la carpeta \"Archivos de entrada\" " << std::endl;
+    std::cout << "" << std::endl;
+    std::string ruta;
+    std::cin >> fileName;
+
+    std::cout << "" << std::endl;
+
+    ruta = "../Archivos de entrada/";
+    ruta += fileName;
+    std::cerr << "Ruta ingresada: " << ruta << std::endl;
+ 	std::ifstream readedFile(ruta);
+
+ 	if (!readedFile) {
+        std::cerr << "No se pudo abrir el archivo." << std::endl;        
+    } else {
+    	std::string line;
+	    while (std::getline(readedFile, line)) {
+	    	// Extracción de datos del empleado
+	        std::cout << line << std::endl;
+
+	        std::string id, name, pass, job;
+	        stringstream line_inputs(line);
+
+	        getline(line_inputs, id, ',');
+	        getline(line_inputs, name, ',');
+	        getline(line_inputs, pass, ',');
+	        getline(line_inputs, job, ',');
+
+			// cout << "Nombre: " << name << endl;
+			// cout << "Id: " << id << endl;
+			// cout << "Pass: " << pass << endl;
+			// cout << "Puesto: " << job << endl;
+			
+			Employee *newEmp = new Employee(name, pass, id, job);
+			this->empList->addEmployee(newEmp);
+
+			std::cout << "" << std::endl;
+	    }
+
+	    readedFile.close();
+    }
+
+    std::cout << "" << std::endl;
 }

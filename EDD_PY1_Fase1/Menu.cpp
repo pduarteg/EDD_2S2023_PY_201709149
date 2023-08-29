@@ -14,6 +14,7 @@ void Menu::showMenu() {
 
     while(true){
         n += 1;
+        option;
 
         std::cout << " ****************************************************************************" << std::endl;
         std::cout << " *                              MENÚ PRINCIPAL                             *" << std::endl;
@@ -34,19 +35,22 @@ void Menu::showMenu() {
         if(option == 1){
             showSubMenu1();
         } else if(option == 2){
-
+            std::cout << "pendiente" << std::endl;
         } else if(option == 3){
-
+            std::cout << "pendiente" << std::endl;
         } else if(option == 4){
-
+            std::cout << "pendiente" << std::endl;
         } else if(option == 5){
             break;
         } else if(option == 0){
-            this->readerObj->empList->showCurrentEmployees();
+            this->readerObj->empList->showCurrentEmployees();            
         } else {
             std::cout << "Opción no válida." << std::endl;
         }
 
+        std::cout << "" << std::endl;
+
+        // ELIMINAR LUEGO
         if(n == 10){
             break;
         }
@@ -76,7 +80,9 @@ void Menu::showSubMenu1(){
         this->readerObj->addEmployeesM();
         std::cout << " *** Carga finalizada. " << std::endl;
     } else if(optionSub1 == 2){
-        std::cout << " CARGA MASIVA" << std::endl;
+        std::cout << "" << std::endl;
+        this->readerObj->addEmployeesF();
+        std::cout << " *** Carga finalizada. " << std::endl;
     } else{
         std::cout << "Opción no válida." << std::endl;
     }
