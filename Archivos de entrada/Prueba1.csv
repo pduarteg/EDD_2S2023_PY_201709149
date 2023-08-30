@@ -1,4 +1,5 @@
-id,nombre,contraseña,puesto
+id,nombre,contraseña,Project Manager
 FDEV-044,Leonardo Martinez,leo1234,Frontend Developer
 BDEV-918,Cristian Suy,cris1234,Backend Developer
+BDEV-913,Alisa Suy,alis1234,Backend Developer
 QA-877,Ebany Larios,qwerty12,Quality Assurance

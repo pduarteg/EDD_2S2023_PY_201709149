@@ -1,5 +1,7 @@
 #include "Employee.h"
 #include "Employees.h"
+#include "Proyects.h"
+#include "Proyect.h"
 
 #ifndef READER_H
 #define READER_H
@@ -8,12 +10,17 @@ class Reader {
 public:
     
     Reader();
+    ~Reader();
     void addEmployeesM();
     void addEmployeesF();
-    Employees *empList;
+    void createProyect();
+    void showCurrentEmployees();
 
-private:
-    
+    Employees *PMList;
+    Employees *FDList;
+    Employees *BDList;
+    Employees *QAList;
+    Proyects *pList;
 };
 
 #endif

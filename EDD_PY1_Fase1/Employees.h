@@ -6,12 +6,9 @@
 class Employees {
 public:
     
-    Employees();
     void addEmployee(Employee *newEmployee);
     void showCurrentEmployees();
-    int cant;
-
-private:
+    int cant = 0;
     Employee *first;
 };
 
