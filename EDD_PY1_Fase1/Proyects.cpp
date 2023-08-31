@@ -1,6 +1,10 @@
 #include "Proyects.h"
 #include "Proyect.h"
 
+#include <iostream>
+
+using namespace std;
+
 Proyects::Proyects(){
 	this->first = NULL;
 	this->cant = 0;
@@ -8,21 +12,48 @@ Proyects::Proyects(){
 
 void Proyects::addProyect(Proyect *newProyect){
 	if(this->first == NULL){
-		this->first = newProyect;
-		this->cant += 1;
-	} else {
+		this->first = newProyect;		
+	} else if(this->cant == 1){
+		int newLevel = newProyect->pLevel;
+		int extLevel = this->first->pLevel;
+
 		Proyect *temp = this->first;
 
-		while(temp->next != nullptr){
-			temp = temp->next;
+		if(newLevel < extLevel){
+			newProyect->next = temp;
+			this->first = newProyect;
+		} else if(newLevel >= extLevel) {
+			this->first->next = newProyect;
+		}
+	} else {
+		int newLevel = newProyect->pLevel;
+		int extLevel;
+		Proyect *temp = this->first;
+		Proyect *aux = NULL;
+
+		while(temp != NULL){
+			extLevel = temp->pLevel;
+			if(extLevel <= newLevel){
+				aux = temp;
+				temp = temp->next;
+			} else {
+				break;
+			}
 		}
 
-		temp->next = newProyect;
-		this->cant += 1;
+		if(aux == NULL){
+			newProyect->next = temp;
+			this->first = newProyect;
+		} else {
+			aux->next = newProyect;
+			newProyect->next = temp;
+		}
 	}
+
+	this->cant += 1;
 }
 
-void Proyects::showCurrentProyects(){
+void Proyects::showCurrentProjects(){
 	Proyect *temp = this->first;
 	while(temp != nullptr){
 		std::cout << "   -------------------------------------" << std::endl;

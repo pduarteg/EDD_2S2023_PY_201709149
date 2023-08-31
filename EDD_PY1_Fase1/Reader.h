@@ -15,6 +15,7 @@ public:
     void addEmployeesF();
     void createProyect();
     void showCurrentEmployees();
+    void showCurrentProjects();
 
     Employees *PMList;
     Employees *FDList;

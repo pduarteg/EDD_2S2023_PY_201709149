@@ -8,10 +8,8 @@ public:
     
     Proyects();
     void addProyect(Proyect *newProyect);
-    void showCurrentProyects();
+    void showCurrentProjects();
     int cant;
-
-private:
     Proyect *first;
 };
 

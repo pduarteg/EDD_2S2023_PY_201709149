@@ -4,11 +4,11 @@
 
 class Proyect {
 public:
-    Proyect(std::string name, std::string priority, std::string pid);
+    Proyect(std::string name, char priority, std::string pid);
     std::string name;
-    std::string priority;
+    char priority;
+    int pLevel;
     std::string pid;
-
     Proyect *next;
 };
 

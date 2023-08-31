@@ -19,6 +19,14 @@ Reader::Reader(){
 
 	Employee *initial = new Employee("P Duarte", "pmPass0123", "PM-201709149", "Project Manager");
 	this->PMList->addEmployee(initial);
+
+	this->pList->addProyect(new Proyect("c_uno", 'C', "PY-001"));
+	this->pList->addProyect(new Proyect("b_uno", 'B', "PY-002"));
+	this->pList->addProyect(new Proyect("a_uno", 'A', "PY-003"));
+	this->pList->addProyect(new Proyect("a_dos", 'A', "PY-004"));
+	this->pList->addProyect(new Proyect("b_dos", 'B', "PY-005"));
+	this->pList->addProyect(new Proyect("c_dos", 'C', "PY-006"));
+	this->pList->addProyect(new Proyect("a_tres", 'A', "PY-007"));
 }
 
 Reader::~Reader(){
@@ -253,7 +261,7 @@ void Reader::createProyect(){
 			break;
 		} else {
 			std::string name;
-			std::string priority;
+			char priority;
 			std::string id = "PY-";
 
 			std::cout << " *** Escriba el nombre:" << std::endl;
@@ -284,13 +292,15 @@ void Reader::createProyect(){
 					continue;
 				}
 
-				if(optionJ == 1)
-					priority = "A";
-				else if(optionJ == 2)
-					priority = "B";
-				else if(optionJ == 3)
-					priority = "C";
-				else{
+				if(optionJ == 1){
+					priority = 'A';
+				}
+				else if(optionJ == 2){
+					priority = 'B';
+				}
+				else if(optionJ == 3){
+					priority = 'C';
+				} else{
 					continue;
 				}
 
@@ -305,6 +315,7 @@ void Reader::createProyect(){
 				id += std::to_string(num);
 			}
 
+			cout << " *** Creando proyecto..." << endl;
 			Proyect *newP = new Proyect(name, priority, id);
 			this->pList->addProyect(newP);
 
@@ -387,4 +398,15 @@ void Reader::showCurrentEmployees(){
 		this->QAList->showCurrentEmployees();
 		std::cout << "" << std::endl;
 	}
+}
+
+void Reader::showCurrentProjects(){
+	std::cout << "" << std::endl;
+	std::cout << "**************************************************" << std::endl;
+	std::cout << "           PROYECTOS CREADOS ACTUALMENTE" << std::endl;
+	std::cout << "           Cantidad: " << this->pList->cant << std::endl;
+	std::cout << "**************************************************" << std::endl;
+	std::cout << "" << std::endl;
+	this->pList->showCurrentProjects();
+	std::cout << "" << std::endl;
 }
