@@ -44,5 +44,6 @@ void Writer::graphQueue(Proyects *p){
     fprintf(fp, "}\n");
 
     fclose(fp);
-    system("dot -Tpng graphviz.dot -o graphviz.png");
+    system("dot -Tsvg graphviz.dot -o graphviz.svg");
+    system("graphviz.svg");
 }

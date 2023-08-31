@@ -25,7 +25,7 @@ void Menu::showMenu() {
 
         std::cout << "" << std::endl;
         std::cout << " ****************************************************************************" << std::endl;
-        std::cout << " *                              MENÚ PRINCIPAL                             *" << std::endl;
+        std::cout << " *                              MENU PRINCIPAL                             *" << std::endl;
         std::cout << " ****************************************************************************" << std::endl;
         std::cout << "" << std::endl;
         std::cout << "  [1] Cargar empleados." << std::endl;
@@ -56,9 +56,9 @@ void Menu::showMenu() {
         } else if(optionInt == 2){
             this->readerObj->createProyect();
         } else if(optionInt == 3){
-            std::cout << "pendiente" << std::endl;
+            this->readerObj->createTasks();
         } else if(optionInt == 4){
-            std::cout << "pendiente" << std::endl;
+            this->readerObj->assignTasks();
         } else if(optionInt == 5){
             this->writerObj->graphQueue(this->readerObj->pList);
         } else if(optionInt == 6){

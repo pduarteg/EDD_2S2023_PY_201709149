@@ -1,4 +1,7 @@
 #include "Proyect.h"
+#include "Task.h"
+#include "Tasks.h"
+
 #include <iostream>
 
 using namespace std;
@@ -19,4 +22,12 @@ Proyect::Proyect(std::string name, char priority, std::string pid){
 		cout << "Se asignó la prioridad 3 (C)." << endl;
 		this->pLevel = 3;
 	}
+}
+
+void Proyect::addProjectTask(string name){
+	if(this->tasksList == NULL){
+		this->tasksList = new Tasks();
+	}
+
+	this->tasksList->addTask(new Task(name));
 }

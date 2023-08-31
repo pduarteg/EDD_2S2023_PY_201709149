@@ -1,0 +1,24 @@
+digraph G {
+   layout=dot
+   rankdir=LR
+   label = "EDD - Proyecto 1 - Cola de Prioridad"
+   node [shape=box color=deeppink3 style=filled fillcolor=salmon]
+
+   nodo0 [label="PY-003\nPrioridad: A"]
+   nodo1 [label="PY-004\nPrioridad: A"]
+   nodo2 [label="PY-007\nPrioridad: A"]
+   nodo3 [label="PY-002\nPrioridad: B"]
+   nodo4 [label="PY-005\nPrioridad: B"]
+   nodo5 [label="PY-001\nPrioridad: C"]
+   nodo6 [label="PY-006\nPrioridad: C"]
+   nodo7 [label="NULL"]
+
+   nodo0 -> nodo1
+   nodo1 -> nodo2
+   nodo2 -> nodo3
+   nodo3 -> nodo4
+   nodo4 -> nodo5
+   nodo5 -> nodo6
+   nodo6 -> nodo7
+
+}

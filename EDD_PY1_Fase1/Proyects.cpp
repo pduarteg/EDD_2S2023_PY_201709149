@@ -65,3 +65,18 @@ void Proyects::showCurrentProjects(){
 		temp = temp->next;
 	}
 }
+
+Proyect* Proyects::searchByID(string pid){
+	Proyect *temp = this->first;
+
+	while(temp != NULL){
+		if(pid.string::compare(temp->pid) == 0){
+			//cout << "FOUND" << endl;
+			break;
+		} else {
+			temp = temp->next;
+		}
+	}
+
+	return temp;
+}

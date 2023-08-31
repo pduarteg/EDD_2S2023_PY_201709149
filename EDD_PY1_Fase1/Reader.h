@@ -13,7 +13,11 @@ public:
     ~Reader();
     void addEmployeesM();
     void addEmployeesF();
+
     void createProyect();
+    void createTasks();
+    void assignTasks();
+
     void showCurrentEmployees();
     void showCurrentProjects();
 

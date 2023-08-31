@@ -8,6 +8,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+
 using namespace std;
 
 Reader::Reader(){
@@ -409,4 +410,84 @@ void Reader::showCurrentProjects(){
 	std::cout << "" << std::endl;
 	this->pList->showCurrentProjects();
 	std::cout << "" << std::endl;
+}
+
+void Reader::createTasks(){
+	cout << "" << endl;
+	std::cout << " ****************************************************************************" << std::endl;
+    std::cout << " *                            Creación de tareas                            *" << std::endl;
+    std::cout << " ****************************************************************************" << std::endl;
+	cout << "" << endl;
+
+	cout << " *** Proyectos actualmente en memoria:" << endl;
+	cout << "" << endl;
+
+	Proyect *t = this->pList->first;
+	string selectedID;
+	int n;
+
+
+	while(t != NULL){
+		n += 1;
+		cout << " * ID: " << t->pid << ". Nombre: " << t->name << endl;
+		t = t->next;
+	}
+
+	cout << "" << endl;
+	cout << " *** Eliga el proyecto escribiendo el ID correspondiente." << endl;
+	cout << "" << endl;
+	std::cin >> selectedID;
+
+	Proyect *found = this->pList->searchByID(selectedID);
+
+	if(found != nullptr){
+		cout << " *** Se ha seleccionado el proyecto con ID: " << found->pid << endl;
+		cout << " *** Escriba el nombre de la taera:" << endl;
+		string taskName;
+		std::cin >> taskName;
+		found->addProjectTask(taskName);
+		cout << "" << endl;
+	} else {
+		cout << " *** ID no encontrado." << endl;
+		cout << "" << endl;
+	}
+}
+
+void Reader::assignTasks(){
+	cout << "" << endl;
+	std::cout << " ****************************************************************************" << std::endl;
+    std::cout << " *                           Asignación de tareas                            *" << std::endl;
+    std::cout << " ****************************************************************************" << std::endl;
+	cout << "" << endl;
+
+	cout << " *** Proyectos actualmente en memoria:" << endl;
+	cout << "" << endl;
+
+	Proyect *t = this->pList->first;
+	string selectedID;
+	int n;
+
+
+	while(t != NULL){
+		n += 1;
+		cout << " * ID: " << t->pid << ". Nombre: " << t->name << endl;
+		t = t->next;
+	}
+
+	cout << "" << endl;
+	cout << " *** Eliga el proyecto escribiendo el ID correspondiente." << endl;
+	cout << "" << endl;
+	std::cin >> selectedID;
+
+	Proyect *found = this->pList->searchByID(selectedID);
+
+	if(found != nullptr){
+		cout << " *** Se ha seleccionado el proyecto con ID: " << found->pid << endl;
+		cout << "" << endl;
+		found->tasksList->showCurrentTasks();
+		cout << "" << endl;
+	} else {
+		cout << " *** ID no encontrado." << endl;
+		cout << "" << endl;
+	}
 }
