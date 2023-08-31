@@ -10,13 +10,16 @@ public:
     // constructor
     Matrix();
 
-    // create node
-    Node *createNode(int row, int col, int val);
+    int pCant;
+    int eCant;
+    int getHeadPCoordinate(string pid);
+    int getHeadECoordinate(string eid);
 
 private:
     Node *head;
-    Node *createProyectHead(std::string pid);
-    Node *createEmployHead(std::string eid);
+    void *createProyectHead(string pid);
+    void *createEmployHead(string eid);
+    void createNode(string pid, string eid, Node *newNode);
 };
 
 #endif

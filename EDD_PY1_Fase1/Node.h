@@ -5,11 +5,14 @@
 class Node {
 public:
 
-    Node(std::string emp, std::string proy, std::string interc);
+    Node(int x, int y, std::string emp, std::string proy, std::string interc);
 
-    std::string emp;
-    std::string proy;
+    std::string emp; // ID del empleado
+    std::string proy; // ID del proyecto
     std::string interc; // intersección de proyecto y empleado
+
+    int x;
+    int y;
     Node *up;
     Node *down;
     Node *left;

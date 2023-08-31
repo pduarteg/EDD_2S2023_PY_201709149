@@ -1,6 +1,9 @@
 #include "Node.h"
 
-Node::Node(std::string emp, std::string proy, std::string interc){
+Node::Node(int x, int y, std::string emp, std::string proy, std::string interc){
+	this->x = x;
+	this->y = y;
+
 	this->emp = emp;
 	this->proy = proy;
 	this->interc = interc;

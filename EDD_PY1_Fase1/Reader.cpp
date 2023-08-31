@@ -21,13 +21,13 @@ Reader::Reader(){
 	Employee *initial = new Employee("P Duarte", "pmPass0123", "PM-201709149", "Project Manager");
 	this->PMList->addEmployee(initial);
 
-	// this->pList->addProyect(new Proyect("c_uno", 'C', "PY-001"));
-	// this->pList->addProyect(new Proyect("b_uno", 'B', "PY-002"));
-	// this->pList->addProyect(new Proyect("a_uno", 'A', "PY-003"));
-	// this->pList->addProyect(new Proyect("a_dos", 'A', "PY-004"));
-	// this->pList->addProyect(new Proyect("b_dos", 'B', "PY-005"));
-	// this->pList->addProyect(new Proyect("c_dos", 'C', "PY-006"));
-	// this->pList->addProyect(new Proyect("a_tres", 'A', "PY-007"));
+	this->pList->addProyect(new Proyect("c_uno", 'C', "PY-001"));
+	this->pList->addProyect(new Proyect("b_uno", 'B', "PY-002"));
+	this->pList->addProyect(new Proyect("a_uno", 'A', "PY-003"));
+	this->pList->addProyect(new Proyect("a_dos", 'A', "PY-004"));
+	this->pList->addProyect(new Proyect("b_dos", 'B', "PY-005"));
+	this->pList->addProyect(new Proyect("c_dos", 'C', "PY-006"));
+	this->pList->addProyect(new Proyect("a_tres", 'A', "PY-007"));
 }
 
 Reader::~Reader(){
